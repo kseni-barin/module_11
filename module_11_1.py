@@ -1,6 +1,3 @@
-#requests - запросить данные с сайта и вывести их в консоль.
-#https://requests.readthedocs.io/en/latest/index.html
-
 import requests
 
 r = requests.get('https://api.github.com/events')
@@ -33,23 +30,11 @@ for url in ['https://api.github.com', 'https://api.github.com/invalid']:
 
 print(r.headers) #Получаем заголовки ответа
 
-#HTTP заголовки играют ключевую роль в регулировании передачи данных веб-запросов.
-#Пользовательские заголовки могут включать в себя ключи аутентификации, типы данных или обеспечивать
-# соблюдение политики CORS
-headers = {
-    'Authorization': 'Bearer ВАШ_ТОКЕН',
-    'Accept-Language': 'en-US',
-    'Content-Type': 'application/json'
-}
-
-response = requests.get('https://api.example.com/endpoint', headers=headers)
-
 #Установить таймаут, чтобы задать максимальное время ожидания ответа на запрос
 response = requests.get('https://example.com', headers=headers, timeout=5)
 
 #параметр auth для осуществления базовой HTTP-аутентификации:
 response = requests.get('https://example.com', auth=('username', 'password'))
-
 
 #Один из распространенных способов настройки GETзапроса — передача значений через параметры строки запроса в URL.
 # Чтобы сделать это с помощью get(), вы передаете данные в params в виде словаря или в виде списка кортежей:
